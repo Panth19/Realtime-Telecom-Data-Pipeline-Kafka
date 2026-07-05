@@ -21,7 +21,7 @@
 ## 📋 Table of Contents
 
 - [Overview](#-overview)
-- [Live Demo](#-live-demo)
+  
 - [Key Features](#-key-features)
 - [Architecture](#-architecture)
 - [Tech Stack](#-tech-stack)
@@ -57,17 +57,6 @@ This project implements a **production-grade real-time telecom Call Detail Recor
 - **Scalable**: Handles 1000+ events/second with proper architecture
 - **Beautiful UI**: Glassmorphism design with auto-refreshing dashboards
 - **Well Documented**: Comprehensive guides for beginners and advanced users
-
----
-
-## 🌐 Live Demo
-
-Experience the real-time dashboard in action:
-
-- **Streamlit Profile**: https://share.streamlit.io/user/ratnesh-181998
-- **Project Demo**: https://realtime-telecom-data-pipeline-kafka-rqf9q28jaxeq56hflarcch.streamlit.app/
-
-*Note: Demo may run on sample data. Connect to Supabase for live streaming data.*
 
 ---
 
