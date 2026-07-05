@@ -662,9 +662,4 @@ This project is licensed under the **MIT License** - see the LICENSE file for de
 - Supabase for cloud PostgreSQL hosting
 - Confluent for Control Center and Schema Registry
 
----
 
-## ⭐ If you found this helpful, please star the repository!
-
-**Last Updated**: July 2024  
-**Status**: Active & Maintained
