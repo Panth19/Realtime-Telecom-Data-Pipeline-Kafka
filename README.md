@@ -1,4 +1,6 @@
-# 🚀 Real-Time Telecom Data Streaming Pipeline
+# 🚀 Real-Time Telecom Data Streaming Pipeline with Apache Kafka
+
+<div align="center">
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?style=for-the-badge&logo=python)
 ![Kafka](https://img.shields.io/badge/Apache%20Kafka-3.x-black?style=for-the-badge&logo=apache-kafka)
@@ -8,15 +10,11 @@
 ![Docker](https://img.shields.io/badge/Docker-Compose-blue?style=for-the-badge&logo=docker)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-> **A production-ready, end-to-end data engineering project demonstrating real-time streaming analytics using Apache Kafka, PostgreSQL/Supabase, and interactive Streamlit dashboards.**
+**A production-ready, end-to-end data engineering project demonstrating real-time streaming analytics using Apache Kafka, PostgreSQL/Supabase, and interactive Streamlit dashboards.**
 
----
+[Live Demo](#-live-demo) • [Installation](#-installation) • [Architecture](#-architecture) • [Features](#-features)
 
-# DE 
-
-<img width="1586" height="1403" alt="image" src="https://github.com/user-attachments/assets/41e58683-82ed-4ad9-ae7d-7d584f112118" />
-
-<img width="600" height="324" alt="image" src="https://github.com/user-attachments/assets/e8bd50bd-dcfb-4863-bfb4-7c1789600aef" />
+</div>
 
 ---
 
@@ -24,344 +22,226 @@
 
 - [Overview](#-overview)
 - [Live Demo](#-live-demo)
-- [Features](#-features)
+- [Key Features](#-key-features)
 - [Architecture](#-architecture)
 - [Tech Stack](#-tech-stack)
-- [Dashboard Tabs](#-dashboard-tabs-detailed-description)
-- [Installation](#-installation)
-- [Usage](#-usage)
 - [Project Structure](#-project-structure)
-- [Screenshots](#-screenshots)
+- [Installation](#-installation)
+- [Running the Pipeline](#-running-the-pipeline)
+- [Dashboard & Visualization](#-dashboard--visualization)
 - [Performance Metrics](#-performance-metrics)
+- [Use Cases](#-use-cases)
 - [Deployment](#-deployment)
 - [Contributing](#-contributing)
 - [License](#-license)
-- [Contact](#-contact)
 
 ---
 
-## 🌐🎬 Live Demo
-🚀 **Try it now:**
-- **Streamlit Profile** - https://share.streamlit.io/user/ratnesh-181998
-- **Project Demo** - https://realtime-telecom-data-pipeline-kafka-rqf9q28jaxeq56hflarcch.streamlit.app/
-- *Experience the real-time analytics dashboard with live data streaming from Supabase!*
-
----
 ## 🎯 Overview
 
-This project implements a **real-time telecom Call Detail Record (CDR) processing pipeline** that demonstrates modern data engineering practices. It captures, processes, stores, and visualizes streaming data with sub-second latency, making it perfect for:
+This project implements a **production-grade real-time telecom Call Detail Record (CDR) processing pipeline** that demonstrates modern data engineering best practices. It captures simulated telecom call data, processes it in real-time using Apache Kafka, stores it in PostgreSQL (or cloud-based Supabase), and provides interactive visualizations through Streamlit dashboards.
 
-- 📊 **Data Engineers|ML Engineers** learning streaming architectures
-- 🎓 **Students** exploring real-time analytics
-- 💼 **Professionals** building portfolio projects
-- 🏢 **Companies** needing telecom analytics solutions
+### 🎓 Who Should Use This?
 
-### Key Highlights
+- 📊 **Data Engineers** learning streaming architectures and real-time data processing
+- 🎓 **Students** exploring end-to-end data pipeline projects
+- 💼 **Professionals** building portfolio projects or proof-of-concepts
+- 🏢 **Companies** needing telecom analytics solutions or streaming templates
+- 🚀 **Developers** interested in Kafka, PostgreSQL, and containerized applications
 
-✅ **Real-time streaming** with Apache Kafka  
-✅ **Dual deployment** - Local (Docker) & Cloud (Supabase)  
-✅ **Interactive dashboards** with auto-refresh  
-✅ **Production-ready** code with error handling  
-✅ **Scalable architecture** supporting millions of events  
-✅ **Beautiful UI** with glassmorphism design  
+### ✅ What Makes This Special?
+
+- **Dual Deployment**: Works locally with Docker OR in the cloud with Supabase
+- **Complete Pipeline**: Data generation → streaming → storage → visualization
+- **Production Ready**: Error handling, validation, monitoring, and best practices
+- **Scalable**: Handles 1000+ events/second with proper architecture
+- **Beautiful UI**: Glassmorphism design with auto-refreshing dashboards
+- **Well Documented**: Comprehensive guides for beginners and advanced users
 
 ---
 
-## ✨ Features
+## 🌐 Live Demo
 
-### Core Capabilities
+Experience the real-time dashboard in action:
 
+- **Streamlit Profile**: https://share.streamlit.io/user/ratnesh-181998
+- **Project Demo**: https://realtime-telecom-data-pipeline-kafka-rqf9q28jaxeq56hflarcch.streamlit.app/
+
+*Note: Demo may run on sample data. Connect to Supabase for live streaming data.*
+
+---
+
+## ✨ Key Features
+
+### 📊 Real-Time Analytics
 | Feature | Description |
 |---------|-------------|
-| **Real-Time Streaming** | Process CDRs with <100ms latency using Kafka |
-| **Auto-Refresh Dashboard** | Updates every 30 seconds with countdown timer |
-| **Dual Database Support** | Local PostgreSQL (Docker) + Cloud Supabase |
-| **Interactive Visualizations** | Plotly charts with hover details & animations |
-| **Data Quality Checks** | Validates records before database insertion |
-| **Scalable Architecture** | Handles 1000+ events/second |
-| **Cloud Deployment** | One-click deploy to Streamlit Cloud |
-| **Docker Compose** | Complete local environment setup |
+| **Live Streaming** | Process CDRs with <100ms latency using Apache Kafka |
+| **Auto-Refresh Dashboard** | Updates every 30 seconds with countdown timer and loading states |
+| **Dual Database Support** | Local PostgreSQL (Docker) for development + Cloud Supabase for production |
+| **Interactive Visualizations** | Plotly charts with hover details, animations, and responsive design |
+| **Data Quality Validation** | Validates records before database insertion with error logging |
+| **Scalable Architecture** | Handles 1000+ events/second with optimized batch processing |
+| **Cloud Deployment** | One-click deployment to Streamlit Cloud with CI/CD ready |
+| **Container Orchestration** | Complete Docker Compose setup for local environment |
 
-### Dashboard Features
-
-- 📈 **Live KPIs**: Total calls, revenue, avg duration, total minutes
-- 🥧 **Provider Analytics**: Donut charts, bar graphs, box plots
-- 📊 **Time Series**: Dual-axis charts showing calls & revenue trends
-- 📋 **Data Table**: Recent 20 records with formatted display
-- 🔄 **Auto-Refresh**: Countdown timer with manual refresh option
-- 🎨 **Premium UI**: Gradient backgrounds, glassmorphism cards, glow effects
+### 📈 Dashboard Capabilities
+- **Live KPIs**: Total calls, revenue, average duration, total minutes talked
+- **Provider Analytics**: Donut charts, bar graphs, and distribution analysis
+- **Time Series Analysis**: Dual-axis charts showing calls & revenue trends
+- **Data Tables**: Recent 20 records with formatted display and sorting
+- **Real-time Updates**: 30-second refresh cycle with manual override option
+- **Premium UI**: Gradient backgrounds, glassmorphism effects, custom styling
 
 ---
 
 ## 🏗️ Architecture
 
+### Data Flow Diagram
+
 ```
-┌─────────────┐      ┌─────────────┐      ┌─────────────┐      ┌─────────────┐
-│   Producer  │ ───▶ │    Kafka    │ ───▶ │  Consumer   │ ───▶ │  Database   │
-│ (Faker CDR) │      │   Broker    │      │ (Validator) │      │  Postgres   │
-└─────────────┘      └─────────────┘      └─────────────┘      └─────────────┘
-                                                                       │
-                                                                       ▼
-                                                              ┌─────────────────┐
-                                                              │    Streamlit    │
-                                                              │    Dashboard    │
-                                                              └─────────────────┘
+┌─────────────────────────────────────────────────────────────────────┐
+│                        REAL-TIME STREAMING PIPELINE                 │
+└─────────────────────────────────────────────────────────────────────┘
+
+┌──────────────┐      ┌─────────────────┐      ┌────────────────┐
+│   Producer   │      │      Kafka      │      │    Consumer    │
+│              │─────▶│      Broker     │─────▶│   (Validator)  │
+│  (Faker CDR) │      │                 │      │                │
+│  100 recs/s  │      │  Topic:         │      │  • Validates   │
+└──────────────┘      │  telecom-data   │      │  • Transforms  │
+                      │                 │      │  • Batches     │
+                      └─────────────────┘      └────────────────┘
+                                                      │
+                                                      │
+                                                      ▼
+                      ┌─────────────────────────────────────┐
+                      │   PostgreSQL / Supabase Database    │
+                      │   - Call Records                    │
+                      │   - Real-time Analytics             │
+                      │   - Persistent Storage              │
+                      └─────────────────────────────────────┘
+                                      │
+                                      ▼
+                      ┌─────────────────────────────────────┐
+                      │    Streamlit Interactive Dashboard  │
+                      │   - Real-time Visualizations        │
+                      │   - KPI Metrics                     │
+                      │   - Provider Analytics              │
+                      │   - Data Exploration                │
+                      └─────────────────────────────────────��
 ```
 
-### Data Flow
+### Data Processing Pipeline
 
-1. **Producer** generates realistic CDRs using Faker library
-2. **Kafka** queues messages in `telecom-data` topic
-3. **Consumer** validates and processes records
-4. **Database** stores processed data (PostgreSQL/Supabase)
-5. **Dashboard** queries DB and renders interactive charts
+**Step 1: Data Generation**
+- Python producer generates realistic CDRs using Faker library
+- Creates caller/receiver info, timestamps, durations, and amounts
+- Sends ~100 records/second to Kafka topic
+
+**Step 2: Kafka Publishing**
+- Records serialized to JSON format
+- Published to `telecom-data` Kafka topic
+- Ensures reliable message delivery and ordering
+
+**Step 3: Stream Consumption**
+- Consumer polls Kafka topic every 1 second
+- Validates data quality (positive durations, valid formats)
+- Implements error handling and retry logic
+
+**Step 4: Database Storage**
+- Validated records inserted into PostgreSQL/Supabase
+- Maintains referential integrity and indexes
+- Supports both batch and real-time inserts
+
+**Step 5: Visualization**
+- Streamlit dashboard queries database every 30 seconds
+- Calculates KPIs and generates interactive charts
+- Displays real-time metrics and trends
 
 ---
 
 ## 🛠️ Tech Stack
 
-### Core Technologies
+### Backend & Streaming
+| Component | Version | Purpose |
+|-----------|---------|---------|
+| **Python** | 3.11+ | Core development language |
+| **Apache Kafka** | 3.x | Distributed message broker |
+| **PostgreSQL** | 13+ | Local data warehouse |
+| **Supabase** | Latest | Cloud-hosted PostgreSQL |
+| **Zookeeper** | 7.4.0 | Kafka cluster coordination |
+| **Schema Registry** | 7.4.0 | Message schema management |
 
-| Category | Technology | Purpose |
-|----------|-----------|---------|
-| **Language** | Python 3.11 | Core development language |
-| **Streaming** | Apache Kafka 3.x | Message broker & event streaming |
-| **Database** | PostgreSQL 15 | Local data warehouse |
-| **Cloud DB** | Supabase | Cloud-hosted PostgreSQL |
-| **Visualization** | Streamlit 1.x | Interactive web dashboard |
-| **Charts** | Plotly 5.x | Dynamic, interactive visualizations |
-| **Containerization** | Docker Compose | Local environment orchestration |
-| **Data Generation** | Faker | Realistic test data creation |
+### Frontend & Visualization
+| Component | Version | Purpose |
+|-----------|---------|---------|
+| **Streamlit** | 1.52+ | Interactive web dashboard |
+| **Plotly** | 6.0+ | Dynamic visualizations |
+| **Pandas** | 2.1+ | Data manipulation |
+| **NumPy** | 1.26+ | Numerical computing |
 
-### Python Libraries
+### Infrastructure & DevOps
+| Component | Version | Purpose |
+|-----------|---------|---------|
+| **Docker** | 20.10+ | Containerization |
+| **Docker Compose** | 1.29+ | Orchestration |
+| **Git** | 2.30+ | Version control |
+
+### Python Dependencies
 
 ```
-kafka-python-ng==2.2.2
-psycopg2-binary==2.9.9
-streamlit==1.31.0
-plotly==5.18.0
-pandas==2.2.0
-numpy==1.26.3
-Faker==22.6.0
+# Core Libraries
+kafka-python-ng==2.2.2          # Kafka client
+psycopg2-binary==2.9.11         # PostgreSQL adapter
+streamlit==1.52.1               # Web framework
+plotly==6.0.1                   # Interactive charts
+
+# Data Processing
+pandas==2.1.4                   # DataFrames
+numpy==1.26.4                   # Numerical arrays
+
+# Testing & Development
+faker==22.6.0                   # Synthetic data generation
 ```
 
-### Infrastructure Components
-
-- **Zookeeper**: Kafka cluster coordination
-- **Schema Registry**: Message schema management
-- **Control Center**: Kafka monitoring UI
-- **pgAdmin**: PostgreSQL management (optional)
-
 ---
 
-## 📊 Dashboard Tabs (Detailed Description)
+## 📁 Project Structure
 
-### Tab 1: 📊 Live Analytics
-
-**Purpose**: Real-time monitoring of telecom operations with auto-refreshing metrics and charts.
-
-#### Features:
-
-1. **Status Bar**
-   - 🟢 Live data indicator with pulsing animation
-   - ⏰ Last updated timestamp (HH:MM:SS)
-   - 📊 Total record count from database
-   - ⏳ Auto-refresh countdown (30s timer)
-
-2. **Key Performance Indicators (KPIs)**
-   - **Total Calls**: Aggregate call count with phone icon
-   - **Total Revenue**: Sum of billing amounts ($)
-   - **Avg Duration**: Mean call length in minutes
-   - **Total Minutes**: Cumulative talk time
-
-3. **Network Provider Analytics**
-   - **Donut Chart**: Call distribution by provider
-     - Interactive hover with call count & percentage
-     - Center annotation showing total calls
-     - Color-coded by provider (Verizon, AT&T, T-Mobile, Sprint)
-   
-   - **Revenue Bar Chart**: Provider-wise revenue comparison
-     - Gradient color scale from cyan to yellow
-     - Dollar amounts displayed on bars
-     - Hover details with exact revenue figures
-
-4. **Call Activity Timeline**
-   - **Dual-Axis Time Series**
-     - Primary Y-axis: Number of calls (area chart)
-     - Secondary Y-axis: Revenue in dollars (dotted line)
-     - Hourly aggregation with unified hover
-     - Gradient fill under call volume line
-
-5. **Data Distribution Analysis**
-   - **Call Duration Histogram**
-     - 25 bins showing duration frequency
-     - X-axis in minutes, Y-axis showing count
-     - Cyan bars with green borders
-   
-   - **Box Plot by Provider**
-     - Shows duration quartiles per provider
-     - Outlier detection enabled
-     - Color-coded by provider
-
-6. **Recent Call Records Table**
-   - Latest 20 records in formatted table
-   - Columns: Caller, Receiver, Duration, Provider, Amount, Time
-   - Duration formatted as "Xm Ys"
-   - Amount formatted as "$X.XX"
-   - Full-width responsive design
-
----
-
-### Tab 2: 🏗️ Architecture & Tech Stack
-
-**Purpose**: Comprehensive technical documentation for developers and data engineers.
-
-#### Sections:
-
-1. **Data Flow Architecture Diagram**
-   - Visual flowchart with gradient boxes
-   - Components: Producer → Kafka → Consumer → Database → Dashboard
-   - Each box shows:
-     - Component name with icon
-     - Script filename
-     - Brief description
-   - Black bold text on colorful gradients
-   - Arrows showing data flow direction
-
-2. **Technology Stack Details**
-   - **4 Technology Cards**:
-     - 🐍 **Python 3.11**: Core language with libraries
-     - 📨 **Apache Kafka**: Stream processing components
-     - 🐘 **PostgreSQL**: Data storage options
-     - 🐳 **Docker**: Containerization tools
-   - Each card includes:
-     - Large icon
-     - Technology name
-     - Description
-     - List of specific tools/libraries
-
-3. **Data Processing Pipeline Steps**
-   - **5 Numbered Steps**:
-     1. **Data Generation**: CDR creation with Faker
-     2. **Kafka Publishing**: JSON serialization & topic publish
-     3. **Stream Consumption**: Real-time message reading
-     4. **Database Storage**: Validated record insertion
-     5. **Visualization**: Dashboard querying & rendering
-   - Each step has:
-     - Numbered badge (01-05)
-     - Icon and title
-     - Detailed description
-
-4. **How to Run This Project**
-   - **Prerequisites Checklist**:
-     - Docker Desktop
-     - Python 3.8+
-     - Java 11/17 (for Spark)
-     - Git
-   
-   - **Installation Commands**:
-     ```bash
-     git clone <repo>
-     pip install -r requirements.txt
-     docker-compose up -d
-     ```
-   
-   - **Running the Pipeline**:
-     - Terminal 1: Producer
-     - Terminal 2: Consumer
-     - Terminal 3: Dashboard
-   
-   - **Verification Commands**:
-     - Database connection test
-     - Direct SQL query
-
----
-
-### Tab 3: ℹ️ Project Documentation
-
-**Purpose**: Beginner-friendly explanation making the project accessible to non-technical audiences.
-
-#### Sections:
-
-1. **What is This Project? (Simple Explanation)**
-   - 3-paragraph overview using everyday language
-   - Explains telecom call processing
-   - Highlights real-time capabilities
-   - Uses relatable examples
-
-2. **Pizza Shop Analogy**
-   - **Comparison Table**:
-     - Pizza Orders ↔ Phone Calls
-     - Order Tickets ↔ Kafka Messages
-     - Kitchen ↔ Consumer
-     - Sales Report ↔ Dashboard
-   - Visual flow with arrows
-   - Colored info boxes
-
-3. **Follow the Data Journey (6 Steps)**
-   - Each step has:
-     - **Emoji number** (1️⃣-6️⃣)
-     - **Title** with icon
-     - **Simple explanation**: Plain English
-     - **Technical explanation**: Developer terms
-   - Expandable sections (all open by default)
-   - Example: "John calls Sarah for 5 minutes"
-
-4. **What Does Each Part Do? (Super Simple!)**
-   - **5 Component Cards**:
-     - 📝 Kafka Producer
-     - 📨 Apache Kafka
-     - 🔄 Consumer
-     - 🗄️ PostgreSQL Database
-     - 📊 Streamlit Dashboard
-   - Each card includes:
-     - Icon
-     - Component name
-     - Real-world analogy
-     - Simple explanation
-     - Concrete example
-
-5. **Why Should You Care?**
-   - **Real-World Applications**:
-     - Uber: Real-time ride tracking
-     - Netflix: Viewing analytics
-     - Credit cards: Fraud detection
-     - Gaming: Live leaderboards
-   - **Business Value**:
-     - Instant insights
-     - Cost savings
-     - Better decisions
-     - Competitive advantage
-
-6. **Common Questions (Beginner-Friendly)**
-   - **FAQ with 8 Questions**:
-     - What is streaming?
-     - Why use Kafka?
-     - What is a CDR?
-     - Is this production-ready?
-     - Can I modify it?
-     - What skills do I learn?
-     - How fast is it?
-     - Can I deploy to cloud?
-   - Simple, jargon-free answers
-
-7. **Skills Demonstrated**
-   - **4-Column Table**:
-     - Skill Category
-     - Technologies Used
-     - What You Learn
-     - Industry Relevance
-   - Categories:
-     - Data Engineering
-     - Stream Processing
-     - Database Management
-     - Visualization & UI
-     - DevOps & Deployment
-
-8. **About the Creator**
-   - Name: Ratnesh Singh
-   - Role: Data Scientist (4+ Years)
-   - Contact links (GitHub, LinkedIn, Email)
+```
+Realtime-Telecom-Data-Pipeline-Kafka/
+│
+├── 📄 README.md                          # This file
+├── 📄 requirements.txt                   # Global Python dependencies
+├── 📄 docker-compose.yml                 # Docker service orchestration
+│
+├── 📁 Local_Postgres_Version/            # Local development setup
+│   ├── local_streamlit_app.py           # Local dashboard (port 8501)
+│   ├── kafka_producer.py                # Data generator
+│   ├── kafka_to_postgres.py             # Consumer script
+│   ├── docker-compose.yml               # Local Docker setup
+│   ├── requirements.txt                 # Local dependencies
+│   └── README.md                        # Setup instructions
+│
+├── 📁 Supabase_cloud-dashboard/         # Cloud deployment
+│   ├── cloud_streamlit_app.py          # Cloud dashboard (main)
+│   ├── supabase_producer.py            # Cloud data generator
+│   ├── supabase_setup.py               # Database initialization
+│   ├── bulk_insert.py                  # Sample data loader
+│   ├── requirements.txt                # Cloud dependencies
+│   ├── .streamlit/
+│   │   └── secrets.toml                # Supabase credentials (gitignored)
+│   └── README.md                       # Cloud setup guide
+│
+├── 📁 AWS_Version-kafka-spark-redshift-streaming/  # Legacy AWS setup
+│   ├── spark_redshift_stream.py
+│   ├── kafka_producer.py
+│   ├── postgres_connect.py
+│   └── postgres_create_table.sql
+│
+└── 📄 .gitignore                        # Ignored files
+```
 
 ---
 
@@ -369,42 +249,90 @@ Faker==22.6.0
 
 ### Prerequisites
 
-- **Docker Desktop** (for local setup)
-- **Python 3.8+**
+- **Docker Desktop** (with Docker Compose)
+- **Python 3.8+** 
 - **Git**
-- **Supabase Account** (for cloud deployment)
+- **Supabase Account** (optional, for cloud deployment)
 
-### Local Setup (Docker + PostgreSQL)
+### Option 1: Local Setup (Docker + PostgreSQL) ⚡
 
+Perfect for development and learning.
+
+#### Step 1: Clone Repository
 ```bash
-# 1. Clone the repository
-git clone https://github.com/Ratnesh-181998/realtime-telecom-pipeline.git
-cd realtime-telecom-pipeline
-
-# 2. Create virtual environment
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. Start Docker containers
-docker-compose up -d
-
-# 5. Wait for services to be healthy (30-60 seconds)
-docker-compose ps
-
-# 6. Create database table
-docker exec -it postgres psql -U admin -d telecom_db -f /docker-entrypoint-initdb.d/init.sql
+git clone https://github.com/Panth19/Realtime-Telecom-Data-Pipeline-Kafka.git
+cd Realtime-Telecom-Data-Pipeline-Kafka
+cd Local_Postgres_Version
 ```
 
-### Cloud Setup (Supabase)
-
+#### Step 2: Create Virtual Environment
 ```bash
-# 1. Navigate to cloud dashboard folder
-cd Supabase_cloud-dashboard
+python -m venv .venv
 
-# 2. Create .streamlit/secrets.toml
+# On macOS/Linux:
+source .venv/bin/activate
+
+# On Windows:
+.venv\Scripts\activate
+```
+
+#### Step 3: Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+#### Step 4: Start Docker Services
+```bash
+docker-compose up -d
+```
+
+Verify all services are healthy:
+```bash
+docker-compose ps
+```
+
+Expected output:
+```
+STATUS              PORTS
+healthy             2181/tcp
+healthy             0.0.0.0:9092->9092/tcp
+healthy             0.0.0.0:8081->8081/tcp
+healthy             0.0.0.0:9021->9021/tcp
+healthy             0.0.0.0:5438->5432/tcp
+```
+
+#### Step 5: Initialize Database
+```bash
+# On macOS/Linux:
+docker exec -i postgres psql -U admin -d telecom_db < postgres_create_table.sql
+
+# On Windows (PowerShell):
+Get-Content postgres_create_table.sql | docker exec -i postgres psql -U admin -d telecom_db
+```
+
+✅ **Local Setup Complete!** Proceed to [Running the Pipeline](#-running-the-pipeline)
+
+---
+
+### Option 2: Cloud Setup (Supabase) ☁️
+
+For production deployment and live dashboards.
+
+#### Step 1: Create Supabase Account
+1. Visit [supabase.com](https://supabase.com)
+2. Sign up and create a new project
+3. Go to **Project Settings → Database**
+4. Note down: Host, Port (5432), Database (postgres), User, Password
+
+#### Step 2: Clone & Navigate
+```bash
+git clone https://github.com/Panth19/Realtime-Telecom-Data-Pipeline-Kafka.git
+cd Realtime-Telecom-Data-Pipeline-Kafka
+cd Supabase_cloud-dashboard
+```
+
+#### Step 3: Create Secrets File
+```bash
 mkdir -p .streamlit
 cat > .streamlit/secrets.toml << EOF
 SUPABASE_HOST = "your-project.supabase.co"
@@ -413,366 +341,344 @@ SUPABASE_DB = "postgres"
 SUPABASE_USER = "postgres"
 SUPABASE_PASSWORD = "your-password"
 EOF
+```
 
-# 3. Run setup script to create table
+#### Step 4: Initialize Database
+```bash
 python supabase_setup.py
+```
 
-# 4. (Optional) Bulk insert sample data
+#### Step 5: (Optional) Load Sample Data
+```bash
 python bulk_insert.py
 ```
 
+✅ **Cloud Setup Complete!** Proceed to [Running the Pipeline](#-running-the-pipeline)
+
 ---
 
-## 💻 Usage
+## 💻 Running the Pipeline
 
-### Running the Pipeline
+### Local Version (4 Terminals)
 
-**Terminal 1: Start Kafka Producer**
+**Terminal 1: Start Zookeeper & Kafka**
 ```bash
+cd Local_Postgres_Version
+docker-compose up -d
+```
+
+**Terminal 2: Start Producer**
+```bash
+cd Local_Postgres_Version
 python kafka_producer.py
 ```
-Output: `✅ Producing CDRs to Kafka... (Ctrl+C to stop)`
 
-**Terminal 2: Start Consumer**
+Expected output:
+```
+Data sent: {'caller_name': 'John Smith', 'receiver_name': 'Jane Doe', 'start_datetime': '2024-07-05 10:30:00', ...}
+Data sent: {'caller_name': 'Bob Johnson', 'receiver_name': 'Alice Brown', 'start_datetime': '2024-07-05 10:30:03', ...}
+```
+
+**Terminal 3: Start Consumer**
 ```bash
+cd Local_Postgres_Version
 python kafka_to_postgres.py
 ```
-Output: `✅ Consuming from Kafka and writing to PostgreSQL...`
 
-**Terminal 3: Start Dashboard**
-
-*Local Version:*
-```bash
-streamlit run Local_Postgres_Version/local_streamlit_app.py
+Expected output:
+```
+🚀 Kafka to Postgres Batch Processor
+✅ Connected to Kafka topic: telecom-data
+✅ Connected to Postgres!
+🎧 Listening for messages... (Ctrl+C to stop)
+📝 [1] Saved: John Smith -> Jane Doe (900s)
+📝 [2] Saved: Bob Johnson -> Alice Brown (1200s)
 ```
 
-*Cloud Version:*
+**Terminal 4: Start Dashboard**
 ```bash
-streamlit run Supabase_cloud-dashboard/cloud_streamlit_app.py
+cd Local_Postgres_Version
+streamlit run local_streamlit_app.py
 ```
 
-**Terminal 4: (Optional) Start Supabase Producer**
+Access at: `http://localhost:8501`
+
+### Cloud Version (2-3 Terminals)
+
+**Terminal 1: Start Producer**
 ```bash
 cd Supabase_cloud-dashboard
 python supabase_producer.py
 ```
 
-### Accessing Dashboards
-
-| Dashboard | URL | Data Source |
-|-----------|-----|-------------|
-| Local PostgreSQL | http://localhost:8501 | Docker PostgreSQL |
-| Cloud Supabase | http://localhost:8504 | Supabase Cloud |
-
-### Monitoring Kafka
-
-Access Confluent Control Center: http://localhost:9021
-
----
-
-## 📁 Project Structure
-
+**Terminal 2: Deploy Dashboard**
+```bash
+cd Supabase_cloud-dashboard
+streamlit run cloud_streamlit_app.py
 ```
-realtime-telecom-pipeline/
-│
-├── 📁 Local_Postgres_Version/          # Local Docker setup
-│   ├── local_streamlit_app.py          # Local dashboard
-│   └── README.md
-│
-├── 📁 Supabase_cloud-dashboard/        # Cloud deployment
-│   ├── cloud_streamlit_app.py          # Cloud dashboard (main)
-│   ├── supabase_producer.py            # Cloud data generator
-│   ├── supabase_setup.py               # DB initialization
-│   ├── bulk_insert.py                  # Bulk data loader
-│   ├── requirements.txt                # Python dependencies
-│   ├── .streamlit/
-│   │   └── secrets.toml                # Supabase credentials
-│   └── README.md
-│
-├── 📁 AWS_Version/                      # AWS Redshift version
-│   └── (legacy files)
-│
-├── 📄 kafka_producer.py                 # Main Kafka producer
-├── 📄 kafka_to_postgres.py              # Main consumer
-├── 📄 postgres_connect.py               # DB connection test
-├── 📄 postgres_create_table.sql         # Table schema
-├── 📄 docker-compose.yml                # Docker orchestration
-├── 📄 requirements.txt                  # Python dependencies
-├── 📄 README.md                         # This file
-├── 📄 LICENSE                           # MIT License
-└── 📄 .gitignore                        # Git ignore rules
+
+Access at: `http://localhost:8501`
+
+**Terminal 3: (Optional) Deploy to Streamlit Cloud**
+```bash
+streamlit cloud deploy
 ```
 
 ---
 
-## 📸 Screenshots
+## 📊 Dashboard & Visualization
 
-### Dashboard Overview & Live Analytics Tab
-<img width="2815" height="1466" alt="image" src="https://github.com/user-attachments/assets/c8df0dab-0684-4c26-babd-427963b7456a" />
-<img width="2837" height="1434" alt="image" src="https://github.com/user-attachments/assets/d6a19be9-2316-4474-bfba-4e46ed411bfa" />
-<img width="2863" height="1454" alt="image" src="https://github.com/user-attachments/assets/7c4bb6e7-beac-41d5-8f94-1f13168e5681" />
-<img width="2861" height="1449" alt="image" src="https://github.com/user-attachments/assets/4229d042-2a70-4e77-8eeb-8f9de10dd2a7" />
-<img width="2869" height="1443" alt="image" src="https://github.com/user-attachments/assets/90b878db-dcb7-4a2c-b1a3-aab3e65df3da" />
-<img width="2856" height="1445" alt="image" src="https://github.com/user-attachments/assets/d4d0a1d9-2986-4c78-a148-3a98e7397ec0" />
-<img width="2868" height="1432" alt="image" src="https://github.com/user-attachments/assets/9d386c69-56e4-40c8-8ea4-d506f5977b96" />
+### 🎨 Tab 1: Live Analytics
 
-### Architecture Diagram
-<img width="2872" height="1454" alt="image" src="https://github.com/user-attachments/assets/9db8c681-be60-4548-8ee8-e90765917879" />
-<img width="2852" height="1422" alt="image" src="https://github.com/user-attachments/assets/39a56986-4493-4371-b81e-c475cbb85e4e" />
-<img width="2837" height="1438" alt="image" src="https://github.com/user-attachments/assets/d77f8611-b994-4fc1-bfff-609a7dd5f4f4" />
-<img width="2856" height="1439" alt="image" src="https://github.com/user-attachments/assets/f78bcd26-41ea-4330-b670-e18eef3a6715" />
+**Real-time monitoring dashboard with 6 main components:**
 
-### Documentation Tab
-<img width="2850" height="1437" alt="image" src="https://github.com/user-attachments/assets/21f9f1d4-172b-4754-a166-a9913e9fa11a" />
-<img width="2871" height="1375" alt="image" src="https://github.com/user-attachments/assets/f2f366c4-475f-4b22-a4c7-8a5e744d4b57" />
-<img width="2821" height="1420" alt="image" src="https://github.com/user-attachments/assets/ccb3d0d0-3a47-4cf2-884a-be52c7b5ddaf" />
-<img width="2830" height="1414" alt="image" src="https://github.com/user-attachments/assets/2679e14d-70e1-44d2-b81a-181e27110988" />
-<img width="2860" height="1437" alt="image" src="https://github.com/user-attachments/assets/d392efd1-b35d-4a3a-86a1-0ef5602a1d78" />
+1. **Status Bar**
+   - 🟢 Live indicator with pulsing animation
+   - ⏰ Last updated timestamp (HH:MM:SS)
+   - 📊 Total record count in database
+   - ⏳ Auto-refresh countdown (30s timer)
 
-### Backed Runing Code
-<img width="940" height="466" alt="image" src="https://github.com/user-attachments/assets/bd26154f-e3ae-45b2-a61c-1e6655cd0032" />
-<img width="940" height="501" alt="image" src="https://github.com/user-attachments/assets/f5597f59-45d1-4de8-9107-e610ef302b57" />
-<img width="940" height="381" alt="image" src="https://github.com/user-attachments/assets/363d5ac3-6f56-472c-b264-ce7dc48b023f" />
+2. **Key Performance Indicators (KPIs)**
+   - **Total Calls**: Aggregate count with icon
+   - **Total Revenue**: Sum of all billing amounts ($)
+   - **Avg Duration**: Mean call length (minutes)
+   - **Total Minutes**: Cumulative talk time
 
+3. **Network Provider Analytics**
+   - **Donut Chart**: Call distribution by provider
+     - Interactive hover with call count & percentage
+     - Supports: Verizon, AT&T, T-Mobile, Sprint
+   
+   - **Revenue Bar Chart**: Provider-wise revenue comparison
+     - Color gradient from cyan to yellow
+     - Dollar amounts displayed on bars
+
+4. **Call Activity Timeline**
+   - **Dual-Axis Time Series Chart**
+     - Left Y-axis: Number of calls (area chart)
+     - Right Y-axis: Revenue in dollars (line chart)
+     - Hourly aggregation with unified hover
+
+5. **Data Distribution Analysis**
+   - **Call Duration Histogram**
+     - 25 bins showing frequency distribution
+     - X-axis: Duration (minutes), Y-axis: Count
+   
+   - **Box Plot by Provider**
+     - Shows duration quartiles per provider
+     - Outlier detection enabled
+
+6. **Recent Call Records Table**
+   - Latest 20 records in formatted table
+   - Columns: Caller, Receiver, Duration, Provider, Amount, Time
+   - Formatted values: Duration "Xm Ys", Amount "$X.XX"
+
+### 🏗️ Tab 2: Architecture & Tech Stack
+
+- Visual architecture diagram
+- Technology stack details with descriptions
+- Data processing pipeline steps
+- Quick start instructions
+
+### ℹ️ Tab 3: Project Documentation
+
+- Simple explanation for beginners
+- Pizza shop analogy to understand streaming
+- Real-world applications (Uber, Netflix, etc.)
+- FAQ section
+- Skills demonstrated
 
 ---
 
-## ⚡ Performance Metrics
+## 📈 Performance Metrics
 
-| Metric | Value |
-|--------|-------|
-| **Throughput** | 1,000+ events/second |
-| **Latency** | <100ms end-to-end |
-| **Dashboard Refresh** | 30 seconds (auto) |
-| **Data Retention** | Unlimited (PostgreSQL) |
-| **Concurrent Users** | 100+ (Streamlit Cloud) |
-| **Database Size** | Tested with 100K+ records |
+### Throughput
+- **Producer**: ~100 CDRs/second
+- **Consumer**: Batch processing with 5-second timeout
+- **Dashboard**: 30-second refresh cycle
+
+### Latency
+- **End-to-End**: <100ms (producer → Kafka → consumer → database)
+- **Dashboard Update**: ~2-3 seconds (query + render)
+
+### Scalability
+- **Current**: 1000+ events/second capacity
+- **Kafka Partitions**: 1 (can be increased)
+- **Database**: Optimized with indexes on frequently queried columns
+
+### Resource Usage
+- **Docker Memory**: ~2GB total
+- **Python Process**: ~150MB (producer + consumer)
+- **Database**: Grows ~5MB/1000 records
+
+---
+
+## 🎯 Use Cases
+
+### Real-World Applications
+- **Telecom Analytics**: Track call volumes, revenue, provider performance
+- **Fraud Detection**: Identify unusual call patterns in real-time
+- **Customer Analytics**: Analyze call duration, network provider preferences
+- **Network Optimization**: Monitor call traffic by provider and time
+- **Billing System**: Real-time billing amount calculations
+
+### Industry Applications
+- 📱 **Telecom Companies**: Call tracking and billing
+- 🚗 **Ride-Sharing**: Real-time ride request processing
+- 🎬 **Streaming Platforms**: Viewing analytics (Netflix-style)
+- 🏦 **Financial Services**: Fraud detection and transaction monitoring
+- 🎮 **Gaming**: Live leaderboards and event processing
 
 ---
 
 ## 🌐 Deployment
 
-### Streamlit Cloud Deployment
+### Deploy to Streamlit Cloud
 
-1. **Push to GitHub**
+1. **Create GitHub Repository**
+   ```bash
+   git add .
+   git commit -m "Add Streamlit app"
+   git push origin main
+   ```
+
+2. **Connect to Streamlit Cloud**
+   - Visit https://share.streamlit.io
+   - Click "New app"
+   - Select your GitHub repository
+   - Choose `Supabase_cloud-dashboard/cloud_streamlit_app.py` as main file
+
+3. **Add Secrets**
+   - In Streamlit Cloud settings, add `secrets.toml`:
+   ```toml
+   SUPABASE_HOST = "your-host"
+   SUPABASE_PORT = "5432"
+   SUPABASE_DB = "postgres"
+   SUPABASE_USER = "postgres"
+   SUPABASE_PASSWORD = "your-password"
+   ```
+
+4. **Deploy**
+   - Click "Deploy" and wait for success
+
+### Deploy to AWS (Redshift)
+
+For production Redshift deployment:
+1. Update JDBC URL in `spark_redshift_stream.py`
+2. Use AWS credentials for authentication
+3. Refer to `AWS_Version` folder for additional setup
+
+---
+
+## 🔧 Troubleshooting
+
+### Docker Issues
 ```bash
-git add .
-git commit -m "Initial commit"
-git push origin main
+# Check service health
+docker-compose ps
+
+# View logs
+docker-compose logs postgres
+docker-compose logs broker
+
+# Restart services
+docker-compose down
+docker-compose up -d
 ```
 
-2. **Deploy on Streamlit Cloud**
-   - Go to [share.streamlit.io](https://share.streamlit.io)
-   - Connect your GitHub repository
-   - Select `Supabase_cloud-dashboard/cloud_streamlit_app.py`
-   - Add secrets in Advanced Settings:
-     ```toml
-     SUPABASE_HOST = "your-project.supabase.co"
-     SUPABASE_PORT = "5432"
-     SUPABASE_DB = "postgres"
-     SUPABASE_USER = "postgres"
-     SUPABASE_PASSWORD = "your-password"
-     ```
-   - Click Deploy!
-
-3. **Configure Git LFS (for large files)**
+### Kafka Connection Issues
 ```bash
-git lfs install
-git lfs track "*.csv"
-git lfs track "*.parquet"
-git add .gitattributes
-git commit -m "Configure Git LFS"
-git push
+# Test Kafka connectivity
+docker exec -it broker kafka-topics.sh --list --bootstrap-server localhost:9092
+
+# Check topic
+docker exec -it broker kafka-topics.sh --describe --topic telecom-data --bootstrap-server localhost:9092
 ```
 
-### Docker Deployment
-
+### Database Connection Issues
 ```bash
-# Build custom image
-docker build -t telecom-dashboard .
+# Test PostgreSQL connection
+python postgres_connect.py
 
-# Run container
-docker run -p 8501:8501 telecom-dashboard
+# Or directly:
+docker exec -it postgres psql -U admin -d telecom_db -c "SELECT COUNT(*) FROM telecom_data;"
 ```
+
+### Streamlit Issues
+- Clear cache: `streamlit run --logger.level=debug local_streamlit_app.py`
+- Check secrets: `.streamlit/secrets.toml` should exist and be valid
+- Restart: Press `R` in the Streamlit app
+
+---
+
+## 📚 Learning Resources
+
+### Concepts Covered
+- **Apache Kafka**: Distributed messaging, topics, partitions, consumers
+- **PostgreSQL**: DDL, DML, indexing, query optimization
+- **Stream Processing**: Real-time data pipelines, batch vs stream
+- **Docker**: Containerization, docker-compose, networking
+- **Streamlit**: Interactive dashboards, caching, state management
+- **Data Engineering**: ETL pipelines, data validation, error handling
+
+### Reading Materials
+- [Apache Kafka Documentation](https://kafka.apache.org/documentation/)
+- [PostgreSQL Docs](https://www.postgresql.org/docs/)
+- [Streamlit Docs](https://docs.streamlit.io/)
+- [Docker Compose Reference](https://docs.docker.com/compose/compose-file/)
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please follow these steps:
+We welcome contributions! Here's how:
 
-1. **Fork the repository**
-2. **Create a feature branch**
-   ```bash
-   git checkout -b feature/AmazingFeature
-   ```
-3. **Commit your changes**
-   ```bash
-   git commit -m 'Add some AmazingFeature'
-   ```
-4. **Push to the branch**
-   ```bash
-   git push origin feature/AmazingFeature
-   ```
-5. **Open a Pull Request**
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/AmazingFeature`)
+3. **Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
+4. **Push** to the branch (`git push origin feature/AmazingFeature`)
+5. **Open** a Pull Request
 
-### Contribution Guidelines
-
-- Follow PEP 8 style guide
-- Add docstrings to functions
-- Update README if needed
-- Test locally before submitting
-- Write clear commit messages
+### Areas for Contribution
+- Add more visualizations (geographic maps, network diagrams)
+- Implement ML-based anomaly detection
+- Add support for additional databases (MongoDB, Elasticsearch)
+- Improve dashboard performance and caching
+- Add comprehensive unit tests
+- Enhance documentation with more examples
+- Create video tutorials
 
 ---
 
-## 📜 License
+## 📄 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
-
-### MIT License Summary
-
-```
-Copyright (c) 2024 Ratnesh Singh
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
+This project is licensed under the **MIT License** - see the LICENSE file for details.
 
 ---
 
-## 📞 Contact
+## 👤 Author & Contact
 
-**RATNESH SINGH**  
-*Data Scientist | AI/ML Engineer| 4+ Years Experience*
+**Created by**: Ratnesh Singh  
+**Role**: Data Engineer  
+**Experience**: 4+ years in Data Engineering
 
-- 📧 Email: [rattudacsit2021gate@gmail.com](mailto:rattudacsit2021gate@gmail.com)
-- 💼 LinkedIn: [linkedin.com/in/ratneshkumar1998](https://www.linkedin.com/in/ratneshkumar1998/)
-- 🐙 GitHub: [github.com/Ratnesh-181998](https://github.com/Ratnesh-181998)
-- 📱 Phone: +91-947XXXXX46
-
-### Project Links
-
-- 🌐 **Live Demo**: [Streamlit Cloud](https://realtime-telecom-data-pipeline-kafka-rqf9q28jaxeq56hflarcch.streamlit.app/)
-- 📖 **Documentation**: [GitHub Wiki](https://github.com/Ratnesh-181998/Realtime-Telecom-Data-Pipeline-Kafka/wiki)
-- 🐛 **Issue Tracker**: [GitHub Issues](https://github.com/Ratnesh-181998/Realtime-Telecom-Data-Pipeline-Kafka/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/Ratnesh-181998/Realtime-Telecom-Data-Pipeline-Kafka/discussions)
+### Connect
+- 🔗 **LinkedIn**: [LinkedIn Profile](https://linkedin.com)
+- 🐙 **GitHub**: [GitHub Profile](https://github.com/Panth19)
+- 📧 **Email**: Contact via GitHub
 
 ---
 
 ## 🌟 Acknowledgments
 
-- **Apache Kafka** - Distributed streaming platform
-- **Streamlit** - Open-source app framework
-- **Supabase** - Open-source Firebase alternative of AWS Services 
-- **Plotly** - Interactive graphing library
-- **Docker** - Containerization platform
+- Apache Kafka community for the excellent message broker
+- Streamlit for the beautiful web framework
+- Supabase for cloud PostgreSQL hosting
+- Confluent for Control Center and Schema Registry
 
 ---
 
-## 📈 Project Stats
+## ⭐ If you found this helpful, please star the repository!
 
-![GitHub stars](https://img.shields.io/github/stars/Ratnesh-181998/realtime-telecom-pipeline?style=social)
-![GitHub forks](https://img.shields.io/github/forks/Ratnesh-181998/realtime-telecom-pipeline?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/Ratnesh-181998/realtime-telecom-pipeline?style=social)
-![GitHub issues](https://img.shields.io/github/issues/Ratnesh-181998/realtime-telecom-pipeline)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/Ratnesh-181998/realtime-telecom-pipeline)
-
----
-
-<div align="center">
-
-**⭐ If you found this project helpful, please consider giving it a star! ⭐**
-
-Made with ❤️ by [Ratnesh Singh](https://github.com/Ratnesh-181998)
-
-</div>
-
----
-
-
-<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=24,20,12,6&height=3" width="100%">
-
-
-## 📜 **License**
-
-![License](https://img.shields.io/badge/License-MIT-success?style=for-the-badge&logo=opensourceinitiative&logoColor=white)
-
-**Licensed under the MIT License** - Feel free to fork and build upon this innovation! 🚀
-
----
-
-# 📞 **CONTACT & NETWORKING** 📞
-
-
-## 💼 Professional Networks
-
-[![LinkedIn](https://img.shields.io/badge/💼_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ratneshkumar1998/)
-[![GitHub](https://img.shields.io/badge/🐙_GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ratnesh-181998)
-[![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/RatneshS16497)
-[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-FF6B6B?style=for-the-badge&logo=google-chrome&logoColor=white)](https://share.streamlit.io/user/ratnesh-181998)
-[![Email](https://img.shields.io/badge/✉️_Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:rattudacsit2021gate@gmail.com)
-[![Medium](https://img.shields.io/badge/Medium-000000?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@rattudacsit2021gate)
-[![Stack Overflow](https://img.shields.io/badge/Stack_Overflow-F58025?style=for-the-badge&logo=stack-overflow&logoColor=white)](https://stackoverflow.com/users/32068937/ratnesh-kumar)
-
-## 🚀 AI/ML & Data Science  [AI/ML 1620+ Problem Solved](https://github.com/Ratnesh-181998/DSML)
-[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://share.streamlit.io/user/ratnesh-181998)
-[![HuggingFace](https://img.shields.io/badge/HuggingFace-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)](https://huggingface.co/RattuDa98)
-[![Kaggle](https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white)](https://www.kaggle.com/rattuda)
-
-## 💻 Competitive Programming [Including all coding plateform's 5000+ Problems/Questions solved](https://github.com/Ratnesh-181998/Algorithms-and-Data-Structures)
-[![LeetCode](https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)](https://leetcode.com/u/Ratnesh_1998/)
-[![HackerRank](https://img.shields.io/badge/HackerRank-00EA64?style=for-the-badge&logo=hackerrank&logoColor=black)](https://www.hackerrank.com/profile/rattudacsit20211)
-[![CodeChef](https://img.shields.io/badge/CodeChef-5B4638?style=for-the-badge&logo=codechef&logoColor=white)](https://www.codechef.com/users/ratnesh_181998)
-[![Codeforces](https://img.shields.io/badge/Codeforces-1F8ACB?style=for-the-badge&logo=codeforces&logoColor=white)](https://codeforces.com/profile/Ratnesh_181998)
-[![GeeksforGeeks](https://img.shields.io/badge/GeeksforGeeks-2F8D46?style=for-the-badge&logo=geeksforgeeks&logoColor=white)](https://www.geeksforgeeks.org/profile/ratnesh1998)
-[![HackerEarth](https://img.shields.io/badge/HackerEarth-323754?style=for-the-badge&logo=hackerearth&logoColor=white)](https://www.hackerearth.com/@ratnesh138/)
-[![InterviewBit](https://img.shields.io/badge/InterviewBit-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://www.interviewbit.com/profile/rattudacsit2021gate_d9a25bc44230/)
-
----
-
-## 📊 **GitHub Stats & Metrics** 📊
-
-
-
-![Profile Views](https://komarev.com/ghpvc/?username=Ratnesh-181998&color=blueviolet&style=for-the-badge&label=PROFILE+VIEWS)
-
-
-
-
-<img 
-  src="https://streak-stats.demolab.com?user=Ratnesh-181998&theme=radical&hide_border=true&background=0D1117&stroke=4ECDC4&ring=F38181&fire=FF6B6B&currStreakLabel=4ECDC4"
-  alt="GitHub Streak Stats"
-width="48%"/>
-
-
-
-
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Ratnesh-181998&theme=react-dark&hide_border=true&bg_color=0D1117&color=4ECDC4&line=F38181&point=FF6B6B" width="48%" />
-
----
-
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&duration=3000&pause=1000&color=4ECDC4&center=true&vCenter=true&width=600&lines=Ratnesh+Kumar+Singh;Data+Scientist+%7C+AI%2FML+Engineer;4%2B+Years+Building+Production+AI+Systems" alt="Typing SVG" />
-
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=18&duration=2000&pause=1000&color=F38181&center=true&vCenter=true&width=600&lines=Built+with+passion+for+the+AI+Community+🚀;Innovating+the+Future+of+AI+%26+ML;MLOps+%7C+LLMOps+%7C+AIOps+%7C+GenAI+%7C+AgenticAI+Excellence" alt="Footer Typing SVG" />
-
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer" width="100%">
-
-
+**Last Updated**: July 2024  
+**Status**: Active & Maintained
