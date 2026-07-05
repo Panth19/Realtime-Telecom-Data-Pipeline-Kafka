@@ -12,7 +12,7 @@
 
 **A production-ready, end-to-end data engineering project demonstrating real-time streaming analytics using Apache Kafka, PostgreSQL/Supabase, and interactive Streamlit dashboards.**
 
-[Live Demo](#-live-demo) • [Installation](#-installation) • [Architecture](#-architecture) • [Features](#-features)
+
 
 </div>
 
@@ -654,20 +654,6 @@ We welcome contributions! Here's how:
 
 This project is licensed under the **MIT License** - see the LICENSE file for details.
 
----
-
-## 👤 Author & Contact
-
-**Created by**: Ratnesh Singh  
-**Role**: Data Engineer  
-**Experience**: 4+ years in Data Engineering
-
-### Connect
-- 🔗 **LinkedIn**: [LinkedIn Profile](https://linkedin.com)
-- 🐙 **GitHub**: [GitHub Profile](https://github.com/Panth19)
-- 📧 **Email**: Contact via GitHub
-
----
 
 ## 🌟 Acknowledgments
 
